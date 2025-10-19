@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confirmação de Presença – Aniversário da Laís</title>
+  <meta name="description" content="RSVP do aniversário da Laís – 25/10/2025, às 15h. Banda de pagode às 17h. Open Cooler.">
+  <style>
+    :root{
+      --bg1:#0ea5e9; --bg2:#22c55e; --ink:#0b132b; --muted:#475569;
+      --card:#ffffff; --accent:#ff4d6d; --btn:#111827;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(255,255,255,.35), transparent),
+                  linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:var(--ink);
+    }
+    .wrap{max-width:860px;margin:32px auto;padding:20px}
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 14px 40px rgba(0,0,0,.15);
+    }
+    h1{margin:0 0 6px;font-size:clamp(22px,4.4vw,34px)}
+    .sub{margin:0 0 18px;color:var(--muted);line-height:1.55}
+    label{display:block;margin:12px 0 6px;font-weight:600}
+    input,select,textarea,button{
+      width:100%;border:1px solid #e2e8f0;border-radius:12px;padding:13px 12px;font-size:16px;outline:none;
+    }
+    textarea{min-height:96px;resize:vertical}
+    .grid{display:grid;gap:12px}
+    @media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+    .muted{font-size:13px;color:#64748b}
+    button{
+      background:var(--btn);color:#fff;border:none;font-weight:800;cursor:pointer;margin-top:12px
+    }
+    button:hover{filter:brightness(1.05)}
+    .ok,.err{display:none;margin-top:12px;padding:12px;border-radius:10px;font-weight:600}
+    .ok{background:#ecfdf5;color:#065f46}
+    .err{background:#fef2f2;color:#991b1b}
+    .badge{
+      display:inline-block;background:#f59e0b;color:#111827;font-weight:800;
+      border-radius:999px;padding:6px 12px;margin:0 4px 8px 0;font-size:13px
+    }
+    .event{
+      display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px 0;color:#0b132b
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Confirmação de Presença – Aniversário da Laís 🎶</h1>
+      <p class="sub">
+        Vamos celebrar juntos os <b>32 anos da Laís</b>! Preencha para confirmar sua presença.
+      </p>
+
+      <div class="event">
+        <span class="badge">📅 25/10/2025</span>
+        <span class="badge">🕒 Início 15h</span>
+        <span class="badge">🥁 Pagode 17h</span>
+        <span class="badge">📍 Av. Teófilo Américo de Carvalho, 160 – Jardim Belvedere</span>
+        <span class="badge">🍾 Open Cooler</span>
+      </div>
+
+      <form id="rsvp" action="https://formsubmit.co/laislovo@hotmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nova confirmação de presença – Aniversário da Laís">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://formsubmit.co/thanks.html">
+
+        <label>Nome completo*</label>
+        <input name="Nome" required placeholder="Seu nome">
+
+        <label>Quantas pessoas vêm com você?*</label>
+        <select name="Quantidade" required>
+          <option value="" disabled selected>Selecione</option>
+          <option>Só eu</option>
+          <option>+1 acompanhante</option>
+          <option>+2 acompanhantes</option>
+          <option>+3 ou mais</option>
+        </select>
+
+        <label>WhatsApp*</label>
+        <input name="WhatsApp" required placeholder="(DDD) 9 9999-9999">
+
+        <label>Recado para a Laís (opcional)</label>
+        <textarea name="Recado" placeholder="Escreva aqui..."></textarea>
+
+        <input type="hidden" name="Evento" value="Aniversário da Laís – 32 anos">
+        <input type="hidden" name="Data" value="25/10/2025">
+        <input type="hidden" name="Endereço" value="Av. Teófilo Américo de Carvalho, 160 – Jardim Belvedere">
+        <input type="hidden" name="Horários" value="Início 15h • Pagode 17h • Open Cooler">
+
+        <button type="submit">Enviar confirmação 🎉</button>
+        <div id="ok" class="ok">Confirmação enviada! Obrigado 💚</div>
+        <div id="err" class="err">Ops! Tente novamente em alguns instantes.</div>
+      </form>
+
+      <p class="muted">Compartilhe este arquivo como link ou anexe no WhatsApp; ele funciona direto no navegador.</p>
+    </div>
+  </div>
+  <script>
+    const form=document.getElementById('rsvp');
+    form.addEventListener('submit',()=>{document.getElementById('ok').style.display='block';});
+  </script>
+</body>
+</html>
